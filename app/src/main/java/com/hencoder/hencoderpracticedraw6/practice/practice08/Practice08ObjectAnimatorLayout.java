@@ -1,6 +1,9 @@
 package com.hencoder.hencoderpracticedraw6.practice.practice08;
 
+import android.animation.Animator;
+import android.animation.ObjectAnimator;
 import android.content.Context;
+import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Button;
@@ -28,6 +31,7 @@ public class Practice08ObjectAnimatorLayout extends RelativeLayout {
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
 
+        this.setBackground(getResources().getDrawable(R.drawable.ss));
         view = (Practice08ObjectAnimatorView) findViewById(R.id.objectAnimatorView);
         animateBt = (Button) findViewById(R.id.animateBt);
 
@@ -38,7 +42,12 @@ public class Practice08ObjectAnimatorLayout extends RelativeLayout {
                 // 1. 用 ObjectAnimator 创建 Animator 对象
                 // 2. 用 start() 执行动画
                 // *. 记得在 Practice08ObjectAnimatorView 中为 progress 添加 setter/ getter 方法！
+
+                Animator animator = ObjectAnimator.ofFloat(view, "progress", 0, 65);
+                animator.start();
+
             }
         });
     }
 }
+

@@ -20,6 +20,8 @@ public class Practice06Duration extends LinearLayout {
 
     int duration = 300;
 
+    int cs = 0;
+
     public Practice06Duration(Context context) {
         super(context);
     }
@@ -65,7 +67,20 @@ public class Practice06Duration extends LinearLayout {
             @Override
             public void onClick(View v) {
                 // TODO 在这里处理点击事件，执行动画。记得使用 `setDuration(duration)` 来设置动画的时长。
+
+                ++cs;
+
+                if (cs == 1) {
+                    imageView.animate().translationX(300).setDuration(duration);
+                } else if (cs == 2) {
+                    imageView.animate().translationX(0).setDuration(duration);
+                }
+
+                if (cs == 2) {
+                    cs = 0;
+                }
             }
         });
     }
 }
+
